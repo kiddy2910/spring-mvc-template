@@ -10,6 +10,13 @@ import com.duytran.sample.orm.impl.Theme;
 @Repository("themeDAO")
 public class ThemeDAO extends AbstractDAO {
 
+	public Theme getById(int id) {
+		String hql = "from Theme where id = :id";
+		return (Theme) createQuery(hql)
+				.setParameter("id", id)
+				.uniqueResult();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Theme> list(int firstResult, int maxResult) {
 		String hql = "from Theme";
@@ -18,4 +25,11 @@ public class ThemeDAO extends AbstractDAO {
 				.setMaxResults(maxResult)
 				.list();
 	}
+	
+	public int countAll() {
+		return ((Long) createQuery("select count(id) from Theme")
+				.uniqueResult())
+				.intValue();
+	}
+	
 }

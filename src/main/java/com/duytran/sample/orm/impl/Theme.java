@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import com.duytran.sample.orm.GenericORM;
 
 @Entity
-@Table(name = "theme")
+@Table(name = "themes")
 public class Theme implements GenericORM {
 	private static final long serialVersionUID = -2035816509378284349L;
 
