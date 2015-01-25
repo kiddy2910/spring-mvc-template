@@ -1,5 +1,7 @@
 package com.duytran.sample.dispatcher.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,9 +26,12 @@ public class ThemeController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	ListDTO<ThemeDTO> list(
-			@RequestParam("firstResult") int firstResult,
-			@RequestParam("maxResult") int maxResult) {
-		return themeService.listThemes(firstResult, maxResult);
+			@RequestParam(value = "offset", defaultValue = "0") int offset,
+			@RequestParam(value = "limit", defaultValue = "20") int limit,
+			HttpServletResponse response) {
+		ListDTO<ThemeDTO> dtoList = themeService.listThemes(offset, limit);
+		response.addHeader("X-Total-Count", String.valueOf(dtoList.getTotal()));
+		return dtoList;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)

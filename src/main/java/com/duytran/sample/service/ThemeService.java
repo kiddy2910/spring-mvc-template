@@ -20,10 +20,10 @@ public class ThemeService {
 	@Autowired
 	private ThemeDAO themeDAO;
 	
-	public ListDTO<ThemeDTO> listThemes(int firstResult, int maxResult) {
+	public ListDTO<ThemeDTO> listThemes(int offset, int limit) {
 		
 		int totalThemes = themeDAO.countAll();
-		List<Theme> themeList = themeDAO.list(firstResult, maxResult);
+		List<Theme> themeList = themeDAO.list(offset, limit);
 		List<ThemeDTO> dtoList = new ArrayList<>();
 		for (Theme t : themeList) {
 			dtoList.add(ThemeDTO.createInstance(t));

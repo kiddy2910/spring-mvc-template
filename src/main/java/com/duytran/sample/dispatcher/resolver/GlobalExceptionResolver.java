@@ -34,7 +34,7 @@ public class GlobalExceptionResolver implements HandlerExceptionResolver, Ordere
 		else {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		}
-		
+
 		return new ModelAndView(new MappingJackson2JsonView());
     }
 

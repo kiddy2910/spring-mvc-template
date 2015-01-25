@@ -21,11 +21,11 @@ public class ThemeDAO extends AbstractDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Theme> list(int firstResult, int maxResult) {
+	public List<Theme> list(int offset, int limit) {
 		String hql = "from Theme";
 		return (List<Theme>) createQuery(hql)
-				.setFirstResult(firstResult)
-				.setMaxResults(maxResult)
+				.setFirstResult(offset)
+				.setMaxResults(limit)
 				.list();
 	}
 	
