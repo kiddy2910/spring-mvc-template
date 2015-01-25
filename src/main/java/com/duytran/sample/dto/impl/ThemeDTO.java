@@ -1,19 +1,18 @@
 package com.duytran.sample.dto.impl;
 
-import java.io.Serializable;
-
+import com.duytran.sample.dto.GenericDTO;
 import com.duytran.sample.orm.impl.Theme;
 
-public class ThemeCmp implements Serializable {
+public class ThemeDTO implements GenericDTO {
 	private static final long serialVersionUID = -3587509354380300160L;
 
 	private Integer id;
 	private String name;
 	private boolean defaults;
 	private boolean active;
-	
-	public static ThemeCmp createInstance(Theme theme) {
-		ThemeCmp cmp = new ThemeCmp();
+
+	public static ThemeDTO createInstance(Theme theme) {
+		ThemeDTO cmp = new ThemeDTO();
 		cmp.setId(theme.getId());
 		cmp.setName(theme.getName());
 		cmp.setDefaults(theme.isDefaults());

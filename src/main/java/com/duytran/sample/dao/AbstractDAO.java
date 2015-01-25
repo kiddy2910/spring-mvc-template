@@ -21,8 +21,8 @@ public abstract class AbstractDAO {
 		return sessionFactory.getCurrentSession().createSQLQuery(sql);
 	}
 	
-	public void save(Object obj) {
-		sessionFactory.getCurrentSession().save(obj);
+	public void saveOrUpdate(Object obj) {
+		sessionFactory.getCurrentSession().saveOrUpdate(obj);
 	}
 	
 	public void update(Object obj) {

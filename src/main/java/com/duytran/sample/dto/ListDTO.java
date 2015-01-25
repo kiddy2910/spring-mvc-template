@@ -2,15 +2,11 @@ package com.duytran.sample.dto;
 
 import java.util.List;
 
-public class ListDTO<T> extends BaseDTO {
-	private static final long serialVersionUID = -2678161269414619015L;
+public class ListDTO<T> implements GenericDTO {
+	private static final long serialVersionUID = -7765128377452304581L;
 
 	private int total;
 	private List<T> list;
-
-	public ListDTO(StatusCode status) {
-		super(status);
-	}
 
 	public int getTotal() {
 		return total;

@@ -2,12 +2,15 @@ package com.duytran.sample.dao.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Repository;
 
 import com.duytran.sample.dao.AbstractDAO;
 import com.duytran.sample.orm.impl.Theme;
 
 @Repository("themeDAO")
+@Transactional
 public class ThemeDAO extends AbstractDAO {
 
 	public Theme getById(int id) {

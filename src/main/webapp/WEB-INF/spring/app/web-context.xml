@@ -6,9 +6,7 @@
 
 	<mvc:annotation-driven />
 
-	<context:component-scan base-package="com.duytran.sample">
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-	</context:component-scan>
+	<context:component-scan base-package="com.duytran.sample.dispatcher"/>
 
 	<bean class="com.duytran.sample.dispatcher.resolver.GlobalExceptionResolver" />
 </beans>
